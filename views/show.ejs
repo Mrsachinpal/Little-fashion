@@ -1,0 +1,139 @@
+<%-include('./partials/header')%>
+    <main>
+
+        <main>
+
+            <header class="site-header section-padding d-flex justify-content-center align-items-center">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-10 col-12">
+                            <h1>
+                                <span class="d-block text-primary">We provide you</span>
+                                <span class="d-block text-dark">Fashionable Stuffs</span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+
+            <!-- ----------- showing particular product-->
+            <%-include('./partials/navbar')%>
+                <%-include('./flash')%>
+
+
+
+                    <section class="product-detail section-padding">
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col-lg-6 col-12">
+                                    <div class="product-thumb">
+                                        <img src="<%=foundProduct.Pimg%>" class="img-fluid product-image" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-12">
+                                    <div class="product-info d-flex">
+                                        <div>
+                                            <h2 class="product-title mb-0">
+                                                <%=foundProduct.Pname%>
+                                            </h2>
+
+                                            <p class="product-p">
+                                                <%=foundProduct.Pshortdesc%>
+                                            </p>
+                                        </div>
+
+                                        <small class="product-price text-muted ms-auto mt-auto mb-5">
+                                            <%=foundProduct.Pprice%>
+                                        </small>
+                                    </div>
+
+                                    <div class="product-description">
+
+                                        <strong class="d-block mt-4 mb-2">Description</strong>
+
+                                        <p class="lead mb-5">
+                                            <%=foundProduct.Pmaindesc%>
+                                        </p>
+                                    </div>
+
+                                    <div class="product-cart-thumb row">
+                                        <div class="col-lg-6 col-12">
+
+                                            <select class="form-select cart-form-select" id="inputGroupSelect01">
+                                                <option selected>Quantity</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-lg-6 col-12 mt-4 mt-lg-0">
+                                            <form action="/user/<%=foundProduct._id%>/add" method="POST">
+                                                <button type="submit" class="btn custom-btn cart-btn"
+                                                    data-bs-toggle="modal">Add to
+                                                    Cart</button>
+                                            </form>
+                                            
+                                        </div>
+
+
+                                        <!-- --------delete or edit button -->
+                                        <%if(currentUser && currentUser.role==="seller" ){%>
+
+                                            <div class="row mt-5">
+                                                <div class="col-lg-6 col-12  mt-lg-0">
+                                                    <a href="/product/<%=foundProduct._id%>/edit"
+                                                        class="btn custom-btn cart-btn">Edit</a>
+                                                </div>
+                                                <form class="col-lg-6 col-12  mt-lg-0"
+                                                    action="/product/<%=foundProduct._id%>?_method=DELETE"
+                                                    method="POST">
+                                                    <div class="col-lg-6 col-12  mt-lg-0">
+                                                        <button class="btn custom-btn cart-btn">Delete</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <%}%>
+
+
+
+                                                <p>
+                                                    <a href="#" class="product-additional-link">Details</a>
+
+                                                    <a href="#" class="product-additional-link">Delivery and Payment</a>
+                                                </p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+
+
+
+
+        <%-include('./partials/footer')%>

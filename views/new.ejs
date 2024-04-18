@@ -1,0 +1,39 @@
+<%-include('./partials/header')%>
+<%-include('./partials/navbar')%>
+    <div class="container mt-5 mb-5 border ">
+        <form action="/products" method="POST" class="mt-5">
+            <div class="row jumbotron box8">
+                <div class="col-sm-12 mx-t3 mb-4">
+                    <h2 class="text-center text-info">Add New Product</h2>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="Pname"> Title</label>
+                    <input type="text" class="form-control" name="Pname" id="Pname" required>
+                </div>
+                <div class="col-sm-6 form-group">
+                    <label for="Pimg"> Image URL</label>
+                    <input type="text" class="form-control" name="Pimg" id="Pimg" required>
+                </div>
+                <div class="col-sm-6 form-group mt-4">
+                    <label for="Pprice"> Price</label>
+                    <input type="number" class="form-control" name="Pprice" id="Pprice" required>
+                </div>
+                <div class="col-sm-6 form-group mt-4">
+                    <label for="PshortDesc"> Short Description</label>
+                    <input type="text" class="form-control" name="Pshortdesc" id="Pshortdesc" required>
+                </div> <div class="col-sm-6 form-group mt-4 ">
+                    <label for="Pmaindesc"> Full Description</label>
+                    <input type="text" class="form-control" name="Pmaindesc" id="Pmaindesc" required>
+                </div>
+                <div class="col-sm-12 form-group mt-5 mb-4">
+                    <button class="btn btn-primary float-right" type="submit">Submit</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <div class="container mb-5">
+        <a href="/products">All Product </a>
+    </div>
+
+<%-include('./partials/footer')%>

@@ -1,0 +1,71 @@
+<%-include('../partials/header')%>
+    <main>
+        <%-include('../partials/navbar')%>
+
+            <header class="site-header section-padding d-flex justify-content-center align-items-center">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-10 col-12">
+                            <h1>
+                                <span class="d-block text-primary">Choose your</span>
+                                <span class="d-block text-dark">favorite stuffs</span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <%-include('../flash')%>
+                <section class="products section-padding">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-12">
+                                <h2 class="mb-5">New Arrivals</h2>
+                            </div>
+
+
+                            <% for(let item of products){%>
+
+
+                                <div class="col-lg-4 col-12 mb-3">
+                                    <div class="product-thumb">
+
+                                        <img src="<%=item.Pimg%>" class="img-fluid product-image" alt="">
+
+                                       
+                                        <span class="btn like-btn" product-id="<%=item._id%>">
+                                            <% if(currentUser && currentUser.wishlist.includes(item._id)){ %>
+                                                <i class="fa-solid fa-heart"></i>
+                                                <% } else{ %>
+                                                    <i class="fa-regular fa-heart"></i>
+                                                    <% } %>
+        
+                                        </span>
+                                        <div class="product-info d-flex">
+                                            <div>
+                                                <h5 class="product-title mb-0">
+                                                    <a href="/product/<%=item._id%>" class="product-title-link ">
+                                                        <%=item.Pname%>
+                                                    </a>
+                                                </h5>
+
+                                                <p class="product-p">
+                                                    <%=item.Pshortdesc%>
+                                                </p>
+                                            </div>
+
+                                            <small class="product-price text-muted ms-auto">Rs. <%=item.Pprice%></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <%}%>
+
+                        </div>
+                    </div>
+                </section>
+
+    </main>
+    <script src="/js/common.js"></script>
+
+    <%-include('../partials/footer')%>
