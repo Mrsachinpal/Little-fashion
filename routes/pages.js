@@ -5,9 +5,10 @@ const Product=require('../models/Products')
 router.get('/',(req,res)=>{
     res.redirect('/home')
 })
-router.get('/home',(req,res)=>{
+router.get('/home',async (req,res)=>{
+    let products= await Product.find({})
     console.log("dispalying");
-    res.render('index')
+    res.render('index',{products})
 })
 router.get('/story',(req,res)=>{
     res.render('./pages/story')

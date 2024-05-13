@@ -1,8 +1,4 @@
 <%-include('./partials/header')%>
-    <main>
-
-        <main>
-
             <header class="site-header section-padding d-flex justify-content-center align-items-center">
                 <div class="container">
                     <div class="row">
@@ -16,13 +12,9 @@
                     </div>
                 </div>
             </header>
-
-
             <!-- ----------- showing particular product-->
+
             <%-include('./partials/navbar')%>
-                <%-include('./flash')%>
-
-
 
                     <section class="product-detail section-padding">
                         <div class="container">
@@ -84,22 +76,7 @@
 
 
                                         <!-- --------delete or edit button -->
-                                        <%if(currentUser && currentUser.role==="seller" ){%>
-
-                                            <div class="row mt-5">
-                                                <div class="col-lg-6 col-12  mt-lg-0">
-                                                    <a href="/product/<%=foundProduct._id%>/edit"
-                                                        class="btn custom-btn cart-btn">Edit</a>
-                                                </div>
-                                                <form class="col-lg-6 col-12  mt-lg-0"
-                                                    action="/product/<%=foundProduct._id%>?_method=DELETE"
-                                                    method="POST">
-                                                    <div class="col-lg-6 col-12  mt-lg-0">
-                                                        <button class="btn custom-btn cart-btn">Delete</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <%}%>
+                                        
 
 
 
@@ -115,25 +92,5 @@
                             </div>
                         </div>
                     </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    
-
-
-
 
         <%-include('./partials/footer')%>

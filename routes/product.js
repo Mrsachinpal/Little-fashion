@@ -9,6 +9,10 @@ router.get('/product/new', isLoggedIn, isSeller,(req, res) => {
     res.render('new');
 })
 
+router.get('/seller/dashboard',async (req,res)=>{
+    let products= await Product.find({})
+    res.render('dashboard',{products});
+})
 // Add Form Data in Database
 
 router.post('/products',isLoggedIn, isSeller, (req, res) => {
